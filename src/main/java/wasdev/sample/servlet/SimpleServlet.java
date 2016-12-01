@@ -21,7 +21,28 @@ public class SimpleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        response.getWriter().print("Hello World!");
+                  response.setContentType("text/html");
+ //       response.getWriter().print("Hello World!");
+        
+        Context initContext;
+		try {
+			initContext = new InitialContext();
+			DataSource ds = (DataSource)initContext.lookup("jdbc/dashDB for Analytics-bd");
+			Connection conn = ds.getConnection();
+		//	System.out.println("yes");
+		    Statement stmt = conn.createStatement();
+			stmt.executeQuery("SELECT * FROM CUSTOMERS");
+			ResultSet rs = stmt.getResultSet();
+			System.out.println("yes");
+			while(rs.next()) {
+                 response.getWriter().print(rs.getString(2)+"  "+rs.getString(3)+"\n");
+			} 
+			stmt.close();
+			conn.close();
+		} catch (NamingException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 }
