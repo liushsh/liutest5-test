@@ -43,7 +43,7 @@ public class SimpleServlet extends HttpServlet {
 		    Statement stmt = conn.createStatement();
 		    stmt.execute("DELETE FROM CUSTOMERS WHERE ID = 7");
 		    stmt.execute("INSERT INTO CUSTOMERS VALUES (7, 'Muffy', 24, 'Indore', 10000.00 )");
-			stmt.executeQuery("SELECT * FROM CUSTOMERS");
+			stmt.executeQuery("SELECT * FROM CUSTOMERS where ID=1");
 			ResultSet rs = stmt.getResultSet();
 			System.out.println("yes");
 			while(rs.next()) {
