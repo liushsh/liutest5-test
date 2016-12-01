@@ -39,7 +39,7 @@ public class SimpleServlet extends HttpServlet {
 			DataSource ds = (DataSource)initContext.lookup("jdbc/dashDB for Analytics-bd");
 			Connection conn = ds.getConnection();
 		//	System.out.println("yes");
-			 response.getWriter().print("DashDB is connected now!");
+			 response.getWriter().print("DashDB is connected now!\r\n");
 		    Statement stmt = conn.createStatement();
 		    stmt.execute("DELETE FROM CUSTOMERS WHERE ID = 7");
 		    stmt.execute("INSERT INTO CUSTOMERS VALUES (7, 'Muffy', 24, 'Indore', 10000.00 )");
