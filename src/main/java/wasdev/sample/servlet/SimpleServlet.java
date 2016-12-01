@@ -40,7 +40,9 @@ public class SimpleServlet extends HttpServlet {
 			Connection conn = ds.getConnection();
 		//	System.out.println("yes");
 		    Statement stmt = conn.createStatement();
-			stmt.executeQuery("SELECT * FROM CUSTOMERS");
+		    stmt.execute("INSERT INTO CUSTOMERS 
+VALUES (7, 'Muffy', 24, 'Indore', 10000.00 )");
+			stmt.executeQuery("SELECT * FROM CUSTOMERS where ID=7");
 			ResultSet rs = stmt.getResultSet();
 			System.out.println("yes");
 			while(rs.next()) {
