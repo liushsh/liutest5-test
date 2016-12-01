@@ -47,7 +47,7 @@ public class SimpleServlet extends HttpServlet {
 			ResultSet rs = stmt.getResultSet();
 			System.out.println("yes");
 			while(rs.next()) {
-                 response.getWriter().print(rs.getString(2)+"  "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+"\r\n");
+                 response.getWriter().print(rs.getString(2)+"  "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+"  \r\n");
 			} 
 			stmt.close();
 			conn.close();
